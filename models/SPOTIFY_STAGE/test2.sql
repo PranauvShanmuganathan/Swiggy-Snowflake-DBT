@@ -1,0 +1,3 @@
+WITH CTE AS (SELECT * FROM {{ref("test")}}
+)
+SELECT * FROM CTE

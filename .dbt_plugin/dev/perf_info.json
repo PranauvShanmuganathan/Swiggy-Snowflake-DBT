@@ -1,0 +1,46 @@
+{
+    "path_count": 139,
+    "parsed_path_count": 139,
+    "static_analysis_path_count": 1,
+    "static_analysis_parsed_path_count": 1,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.02949820796493441,
+    "load_macros_elapsed": 0.5155034589697607,
+    "parse_project_elapsed": 0.23452250001719221,
+    "patch_sources_elapsed": 5.249981768429279e-06,
+    "process_manifest_elapsed": 0.02356874995166436,
+    "load_all_elapsed": 0.8505649160360917,
+    "projects": [
+        {
+            "project_name": "SPOTIFY_ANALYSIS",
+            "elapsed": 0.22712745796889067,
+            "parsers": [
+                {
+                    "parser": "model",
+                    "elapsed": 0.22262683301232755,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        },
+        {
+            "project_name": "dbt_snowflake",
+            "elapsed": 0.0036738330381922424,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0.0036549579817801714,
+            "parsers": [
+                {
+                    "parser": "doc",
+                    "elapsed": 0.0002429999876767397,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        }
+    ]
+}
