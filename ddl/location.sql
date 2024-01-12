@@ -18,6 +18,7 @@ GRANT USAGE ON INTEGRATION SWIGGY_S3_INTEGRATION TO ROLE ACCOUNTADMIN;
 --use the below command to list the integrations and take the external credentials , now replace them in your AWS IAM role
 DESC INTEGRATION SWIGGY_S3_INTEGRATION ;
 
+--file format creation
 create file format if not exists SWIGGY_LANDING.csv_file_format 
         type = 'csv' 
         compression = 'auto' 
@@ -33,8 +34,9 @@ STORAGE_INTEGRATION = SWIGGY_S3_INTEGRATION
 FILE_FORMAT = CSV_FILE_FORMAT
 URL = 's3://swiggy-dbt/';
 
-LIST  @MOVE_IT_IN;
+LIST  @MOVE_IT_IN;  
 
+--table creation for location
 create table SWIGGY_LANDING.location (
     locationid text,
     city text,
@@ -54,7 +56,7 @@ file_format = (format_name = 'csv_file_format')
 PATTERN ='.*location-.*\.csv'
 on_error = abort_statement;
 
-
+--load data from the stage to the table 
 copy into location (locationid, city, state, zipcode, activeflag, 
                     createddate, modifieddate, _stg_file_name, 
                     _stg_file_load_ts, _stg_file_md5, _copy_data_ts)
