@@ -1,3 +1,6 @@
+USE DATABASE SWIGGY ;
+USE SCHEMA SWIGGY_LANDING;
+
 --delivery table creation
 CREATE OR REPLACE TABLE delivery (
     delivery_sk INT AUTOINCREMENT PRIMARY KEY ,

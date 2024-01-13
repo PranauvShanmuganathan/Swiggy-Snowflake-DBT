@@ -19,7 +19,7 @@ GRANT USAGE ON INTEGRATION SWIGGY_S3_INTEGRATION TO ROLE ACCOUNTADMIN;
 DESC INTEGRATION SWIGGY_S3_INTEGRATION ;
 
 --file format creation
-create file format if not exists SWIGGY_LANDING.csv_file_format 
+create file format if not exists SWIGGY_LANDING.CSV_FILE_FORMAT 
         type = 'csv' 
         compression = 'auto' 
         field_delimiter = ',' 
