@@ -15,7 +15,10 @@ CREATE OR REPLACE TABLE delivery (
     _stg_file_md5 STRING,                 
     _copy_data_ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
+
 LIST @MOVE_IT_IN;
+
+--insert into delivery table from the stage
 copy into delivery (
     delivery_id,
     order_id,
