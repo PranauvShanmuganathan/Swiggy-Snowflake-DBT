@@ -8,8 +8,6 @@ create or replace table orders (
     payment_method text,            -- payment method as text
     created_date text,              -- created date as text
     modified_date text,             -- modified date as text
-
-    -- audit columns with appropriate data types
     _stg_file_name text,
     _stg_file_load_ts timestamp,
     _stg_file_md5 text,
