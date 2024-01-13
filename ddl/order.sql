@@ -1,13 +1,15 @@
 create or replace table orders (
-    order_id text ,
-    customer_id text ,
-    restaurant_id text ,
-    order_date text,    
-    total_amount text,  
-    status text,        
-    payment_method text,
-    created_date text,  
-    modified_date text, 
+    order_id text ,                  -- primary key as text
+    customer_id text ,               -- foreign key reference as text (no constraint in snowflake)
+    restaurant_id text ,             -- foreign key reference as text (no constraint in snowflake)
+    order_date text,                -- order date as text
+    total_amount text,              -- total amount as text (no decimal constraint)
+    status text,                   -- status as text
+    payment_method text,            -- payment method as text
+    created_date text,              -- created date as text
+    modified_date text,             -- modified date as text
+
+    -- audit columns with appropriate data types
     _stg_file_name text,
     _stg_file_load_ts timestamp,
     _stg_file_md5 text,
