@@ -14,6 +14,7 @@ CREATE OR REPLACE TABLE order_item (
     _copy_data_ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp when data is copied into the clean layer
 );
 
+LIST @MOVE_IT_IN/Order_Item;
 
 copy into order_item (order_item_id, order_id_fk, menu_id_fk, quantity, price, 
                      subtotal, created_dt, modified_dt,
