@@ -1,17 +1,17 @@
 CREATE OR REPLACE TABLE order_item (
-    order_item_sk NUMBER AUTOINCREMENT primary key ,
+    order_item_sk NUMBER AUTOINCREMENT primary key ,    -- Auto-incremented unique identifier for each order item
     order_item_id NUMBER  NOT NULL UNIQUE ,
-    order_id_fk NUMBER  NOT NULL ,
-    menu_id_fk NUMBER  NOT NULL ,
-    quantity NUMBER(10, 2),      
-    price NUMBER(10, 2),         
-    subtotal NUMBER(10, 2),      
-    created_dt TIMESTAMP,        
-    modified_dt TIMESTAMP,       
-    _stg_file_name VARCHAR(255),       
-    _stg_file_load_ts TIMESTAMP,       
-    _stg_file_md5 VARCHAR(255),        
-    _copy_data_ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+    order_id_fk NUMBER  NOT NULL comment ,                  -- Foreign key reference for Order ID
+    menu_id_fk NUMBER  NOT NULL comment ,                   -- Foreign key reference for Menu ID
+    quantity NUMBER(10, 2),                 -- Quantity as a decimal number
+    price NUMBER(10, 2),                    -- Price as a decimal number
+    subtotal NUMBER(10, 2),                 -- Subtotal as a decimal number
+    created_dt TIMESTAMP,                 -- Created date of the order item
+    modified_dt TIMESTAMP,                -- Modified date of the order item
+    _stg_file_name VARCHAR(255),            -- File name of the staging file
+    _stg_file_load_ts TIMESTAMP,            -- Timestamp when the file was loaded
+    _stg_file_md5 VARCHAR(255),             -- MD5 hash of the file for integrity check
+    _copy_data_ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp when data is copied into the clean layer
 );
 
 
