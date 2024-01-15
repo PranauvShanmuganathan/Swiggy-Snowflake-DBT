@@ -14,4 +14,8 @@ create or replace table restaurant (
     longitude text,                                      -- longitude as text for precision
     createddate text,                                    -- record creation date
     modifieddate text,                                   -- last modified date
+    _stg_file_name text,
+    _stg_file_load_ts timestamp,
+    _stg_file_md5 text,
+    _copy_data_ts timestamp default current_timestamp
 );
