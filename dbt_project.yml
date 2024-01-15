@@ -1,4 +1,4 @@
-name: 'SPOTIFY_ANALYSIS'
+name: 'SWIGGY'
 version: '1.0.0'
 
 profile: 'SWIGGY'
@@ -15,8 +15,8 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  SPOTIFY_ANALYSIS:
+  SWIGGY:
     +database: SWIGGY
-    +schema: SWIGGY_LANDING
-    SWIGGY_LANDING:
+    +schema: SWIGGY_STAGE
+    SWIGGY_STAGE:
       +materialized: table
