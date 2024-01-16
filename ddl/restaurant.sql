@@ -19,3 +19,13 @@ create or replace table restaurant (
     _stg_file_md5 text,
     _copy_data_ts timestamp default current_timestamp
 );
+
+
+copy into restaurant (restaurantid, name, cuisinetype, pricing_for_2, restaurant_phone, 
+                      operatinghours, locationid, activeflag, openstatus, 
+                      locality, restaurant_address, latitude, longitude, 
+                      createddate, modifieddate, 
+                      _stg_file_name, _stg_file_load_ts, _stg_file_md5, _copy_data_ts)
+from @MOVE_IT_IN/Restaurant t
+file_format = (format_name = 'csv_file_format')
+on_error = abort_statement;
