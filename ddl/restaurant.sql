@@ -26,6 +26,29 @@ copy into restaurant (restaurantid, name, cuisinetype, pricing_for_2, restaurant
                       locality, restaurant_address, latitude, longitude, 
                       createddate, modifieddate, 
                       _stg_file_name, _stg_file_load_ts, _stg_file_md5, _copy_data_ts)
-from @MOVE_IT_IN/Restaurant t
+from (
+    select 
+        t.$1::text as restaurantid,        -- restaurantid as the first column
+        t.$2::text as name,
+        t.$3::text as cuisinetype,
+        t.$4::text as pricing_for_2,
+        t.$5::text as restaurant_phone,
+        t.$6::text as operatinghours,
+        t.$7::text as locationid,
+        t.$8::text as activeflag,
+        t.$9::text as openstatus,
+        t.$10::text as locality,
+        t.$11::text as restaurant_address,
+        t.$12::text as latitude,
+        t.$13::text as longitude,
+        t.$14::text as createddate,
+        t.$15::text as modifieddate,
+        -- audit columns for tracking & debugging
+        metadata$filename as _stg_file_name,
+        metadata$file_last_modified as _stg_file_load_ts,
+        metadata$file_content_key as _stg_file_md5,
+        current_timestamp() as _copy_data_ts
+     from @MOVE_IT_IN/Restaurant t
+)
 file_format = (format_name = 'csv_file_format')
 on_error = abort_statement;
