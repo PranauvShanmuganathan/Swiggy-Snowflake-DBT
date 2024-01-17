@@ -20,6 +20,8 @@ create or replace table restaurant (
     _copy_data_ts timestamp default current_timestamp
 );
 
+LIST @MOVE_IT_IN; --/Restaurant/restaurant-delhi+NCR.csv ;
+
 
 copy into restaurant (restaurantid, name, cuisinetype, pricing_for_2, restaurant_phone, 
                       operatinghours, locationid, activeflag, openstatus, 
